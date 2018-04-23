@@ -5,11 +5,25 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {AngularFireModule} from 'angularfire2';
 import {environment} from '../environments/environment';
+import { MapsComponent } from './maps/maps.component';
+import { AlbumsComponent } from './albums/albums.component';
+import { UserComponent } from './user/user.component';
+import { SharedComponent } from './shared/shared.component';
+import { AuthComponent } from './auth/auth.component';
+import { LandingComponent } from './landing/landing.component';
+import { LoginComponent } from './auth/login/login.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MapsComponent,
+    AlbumsComponent,
+    UserComponent,
+    SharedComponent,
+    AuthComponent,
+    LandingComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
