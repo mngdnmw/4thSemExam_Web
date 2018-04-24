@@ -6,6 +6,7 @@ import {MatButtonModule, MatSidenavModule} from '@angular/material';
 import { AppRoutingModule } from './/app-routing.module';
 import {AlbumsModule} from './albums/albums.module';
 import {AuthModule} from './auth/auth.module';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {AuthModule} from './auth/auth.module';
     AppRoutingModule,
     AlbumsModule,
     AuthModule,
-    MatSidenavModule
+    MatSidenavModule,
+    FlexLayoutModule
 
   ],
   providers: [],
