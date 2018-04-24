@@ -8,6 +8,8 @@ import {AlbumsModule} from './albums/albums.module';
 import {AuthModule} from './auth/auth.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {SharedModule} from './shared/shared.module';
+import {AngularFireModule} from 'angularfire2';
+import {environment} from '../environments/environment';
 
 
 @NgModule({
@@ -17,6 +19,7 @@ import {SharedModule} from './shared/shared.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebase),
     MatButtonModule,
     AppRoutingModule,
     AlbumsModule,
