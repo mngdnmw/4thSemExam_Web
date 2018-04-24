@@ -1,5 +1,6 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
+<mat-sidenav-container class="main-container">
+  <mat-sidenav mode="side" position="end" opened> This is a side nav bar </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
