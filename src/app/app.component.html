@@ -1,6 +1,20 @@
 <mat-sidenav-container class="main-container">
-  <mat-sidenav mode="side" position="end" opened> This is a side nav bar </mat-sidenav>
+  <mat-sidenav mode="side" position="end" [opened]="navBarOpen">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/"><app-margin-icon [iconName]="'home'"></app-margin-icon> Front Page</a>
+      <a mat-list-item routerLink="/albums"><app-margin-icon [iconName]="'folder'"></app-margin-icon> Albums</a>
+      <hr>
+      <a mat-list-item routerLink="/login"><app-margin-icon [iconName]="'supervisor_account'"></app-margin-icon> Sign Out</a>
+    </mat-nav-list>
+  </mat-sidenav>
   <mat-sidenav-content>
-    <router-outlet></router-outlet>
+    <button mat-mini-fab
+            color="accent"
+            (click)="toggleNav()">
+      <i class="material-icons">list</i>
+    </button>
+    <div style="margin-left: 10px">
+      <router-outlet></router-outlet>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
