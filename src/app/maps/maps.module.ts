@@ -9,7 +9,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
   imports: [
     CommonModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyB92wF6pGNxwCiIahxb5s5LXR49tsXQ0OQ'
+      apiKey: 'AIzaSyAtxbJ-os_tVgM00gTsc04VEn9gX8pwCqM'
     }),
     MatListModule,
     MatIconModule,
