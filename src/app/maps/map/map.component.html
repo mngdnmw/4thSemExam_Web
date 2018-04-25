@@ -1,0 +1,23 @@
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+<div fxLayout="row">
+<agm-map fxFlex="70" [latitude]="lat1" [longitude]="lng1">
+  <agm-marker [latitude]="lat1" [longitude]="lng1"></agm-marker>
+  <agm-marker [latitude]="lat2" [longitude]="lng2"></agm-marker>
+</agm-map>
+<mat-nav-list fxFlex="30">
+  <h3 mat-subheader>Latest observed balls</h3>
+  <mat-list-item>
+    <img src="../../../assets/tennisball.png" height="64" width="64">
+    <h4 mat-line>Green Ball</h4>
+    <p mat-line>Timestamp: 22:01:54</p>
+    <p mat-line>Location: Pyongyang</p>
+  </mat-list-item>
+  <mat-list-item>
+    <img src="../../../assets/8ball.png" height="64" width="64">
+    <h4 mat-line>8Ball</h4>
+    <p mat-line>Timestamp: 18:47:04</p>
+    <p mat-line>Location: Oslo</p>
+  </mat-list-item>
+</mat-nav-list>
+</div>
