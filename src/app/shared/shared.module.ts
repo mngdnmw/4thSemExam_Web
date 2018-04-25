@@ -4,13 +4,18 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SignupComponent } from './signup/signup.component';
 import { MarginIconComponent } from './margin-icon/margin-icon.component';
 import {MatIconModule} from '@angular/material';
+import { MapComponent } from './map/map.component';
+import {AgmCoreModule} from '@agm/core';
 
 @NgModule({
   imports: [
     CommonModule,
-    MatIconModule
+    MatIconModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyB92wF6pGNxwCiIahxb5s5LXR49tsXQ0OQ'
+    })
   ],
-  declarations: [ToolbarComponent, SignupComponent, MarginIconComponent],
-  exports: [MarginIconComponent]
+  declarations: [ToolbarComponent, SignupComponent, MarginIconComponent, MapComponent],
+  exports: [MarginIconComponent, MapComponent]
 })
 export class SharedModule { }

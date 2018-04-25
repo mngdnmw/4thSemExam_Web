@@ -8,13 +8,20 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <button mat-mini-fab
-            color="accent"
-            (click)="toggleNav()">
-      <i class="material-icons">list</i>
+    <div fxLayout="row">
+      <span fxFlex="33"></span>
+      <h2 fxFlex="33" style="text-align: center">Welcome to BALLZ</h2>
+      <span fxFlex="30"></span>
+      <button mat-mini-fab
+              style="align-self: right"
+              color="accent"
+              (click)="toggleNav()">
+        <app-margin-icon [iconName]="'list'"></app-margin-icon>
     </button>
+    </div>
     <div style="margin-left: 10px">
       <router-outlet></router-outlet>
+      <app-map></app-map>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
