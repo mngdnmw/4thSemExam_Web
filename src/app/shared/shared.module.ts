@@ -4,7 +4,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SignupComponent } from './signup/signup.component';
 import { MarginIconComponent } from './margin-icon/margin-icon.component';
 import {MatIconModule} from '@angular/material';
-import { MapComponent } from './map/map.component';
+import { MapComponent } from '../maps/map/map.component';
 import {AgmCoreModule} from '@agm/core';
 
 @NgModule({
