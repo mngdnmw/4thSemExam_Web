@@ -10,6 +10,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {SharedModule} from './shared/shared.module';
 import {AngularFireModule} from 'angularfire2';
 import {environment} from '../environments/environment';
+import {MapsModule} from './maps/maps.module';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import {environment} from '../environments/environment';
     MatIconModule,
     MatListModule,
     SharedModule,
+    MapsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
