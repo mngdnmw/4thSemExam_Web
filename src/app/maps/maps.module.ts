@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import {AgmCoreModule} from '@agm/core';
 import {MatIconModule, MatListModule} from '@angular/material';
 import {MapComponent} from './map/map.component';
