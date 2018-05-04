@@ -11,8 +11,8 @@ import {SharedModule} from './shared/shared.module';
 import {AngularFireModule} from 'angularfire2';
 import {environment} from '../environments/environment';
 import {MapsModule} from './maps/maps.module';
-import * as firebase from 'firebase';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
+import * as firebase from 'firebase';
 
 @NgModule({
   declarations: [
@@ -43,39 +43,4 @@ firebase.initializeApp({
   apiKey: 'AIzaSyDzl_c8NLnGcVzn6yWXy-KTYp-ChbtKhy4',
   authDomain: 'sosomafioso-5c8ef.firebaseapp.com',
   projectId: 'sosomafioso-5c8ef'
-});
-
-// Initialize Cloud Firestore through Firebase
-this.db = firebase.firestore();
-
-this.db.collection('users').add({
-  first: 'Ada',
-  last: 'Lovelace',
-  born: 1815
-})
-  .then(function(docRef) {
-    console.log('Document written with ID: ', docRef.id);
-  })
-  .catch(function(error) {
-    console.error('Error adding document: ', error);
-  });
-
-// Add a second document with a generated ID.
-this.db.collection('users').add({
-  first: 'Alan',
-  middle: 'Mathison',
-  last: 'Turing',
-  born: 1912
-})
-  .then(function(docRef) {
-    console.log('Document written with ID: ', docRef.id);
-  })
-  .catch(function(error) {
-    console.error('Error adding document: ', error);
-  });
-
-this.db.collection('users').get().then((querySnapshot) => {
-  querySnapshot.forEach((doc) => {
-    console.log(`${doc.id} => ${doc.data()}`);
-  });
 });
