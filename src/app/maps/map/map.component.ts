@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {AngularFirestore} from 'angularfire2/firestore';
+import {Observable} from 'rxjs/Observable';
+import * as firebase from 'firebase';
+import {BallService} from '../../shared/ball/ball.service';
+import {Ball} from '../../shared/ball/ball';
 
 @Component({
   selector: 'app-map',
@@ -12,9 +17,21 @@ export class MapComponent implements OnInit {
   lat2 = 59.9127;
   lng2 = 10.7461;
 
-  constructor() { }
+  db = firebase.firestore();
+  ballsArray = [];
+
+  constructor(public bs: BallService) {
+
+  }
 
   ngOnInit() {
+    this.getBalls();
+  }
+
+  getBalls() {
+    this.bs.getAllBalls().subscribe(balls => {
+      this.ballsArray = balls;
+    });
   }
 
 }

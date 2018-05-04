@@ -11,16 +11,18 @@ import {SharedModule} from './shared/shared.module';
 import {AngularFireModule} from 'angularfire2';
 import {environment} from '../environments/environment';
 import {MapsModule} from './maps/maps.module';
-
+import {AngularFirestoreModule} from 'angularfire2/firestore';
+import * as firebase from 'firebase';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     BrowserModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebase),
     MatButtonModule,
     AppRoutingModule,
     AlbumsModule,
@@ -35,5 +37,10 @@ import {MapsModule} from './maps/maps.module';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }
+
+firebase.initializeApp({
+  apiKey: 'AIzaSyDzl_c8NLnGcVzn6yWXy-KTYp-ChbtKhy4',
+  authDomain: 'sosomafioso-5c8ef.firebaseapp.com',
+  projectId: 'sosomafioso-5c8ef'
+});

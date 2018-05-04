@@ -6,10 +6,15 @@ import {Component, EventEmitter, Output} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+ constructor() {
+
+ }
   title = 'So So Mafioso';
   navBarOpen = true;
 
   toggleNav() {
     this.navBarOpen = !this.navBarOpen;
   }
+
+
 }
