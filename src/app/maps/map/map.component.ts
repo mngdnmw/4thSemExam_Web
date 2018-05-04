@@ -11,17 +11,10 @@ import {Ball} from '../../shared/ball/ball';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-
-  lat1 = 39.017696;
-  lng1 = 125.763588;
-  lat2 = 59.9127;
-  lng2 = 10.7461;
-
   db = firebase.firestore();
   ballsArray = [];
 
   constructor(public bs: BallService) {
-
   }
 
   ngOnInit() {
@@ -30,7 +23,7 @@ export class MapComponent implements OnInit {
 
   getBalls() {
     this.bs.getAllBalls().subscribe(balls => {
-      this.ballsArray = balls;
+      this.ballsArray.push(balls);
     });
   }
 

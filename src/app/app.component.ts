@@ -9,8 +9,7 @@ export class AppComponent {
  constructor() {
 
  }
-  title = 'So So Mafioso';
-  navBarOpen = true;
+ navBarOpen = true;
 
   toggleNav() {
     this.navBarOpen = !this.navBarOpen;
