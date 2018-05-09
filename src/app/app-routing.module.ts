@@ -4,6 +4,7 @@ import {AlbumsListComponent} from './albums/albums-list/albums-list.component';
 import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './auth/login/login.component';
 import {MapComponent} from './maps/map/map.component';
+import {AuthModule} from './auth/auth.module';
 
 const routes: Routes = [
   { path: 'albums', component: AlbumsListComponent },
@@ -14,7 +15,8 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    AuthModule
   ],
   declarations: [],
   exports: [RouterModule]

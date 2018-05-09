@@ -1,11 +1,17 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, OnDestroy, Output} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
+  routes = [
+    { route: '/', title: 'Home', icon: 'home' },
+    { route: '/albums', title: 'Albums', icon: 'folder' },
+    { route: '/map', title: 'Map', icon: 'map' },
+    { route: '/login', title: 'Login', icon: 'input' }
+  ];
  constructor() {
 
  }
@@ -13,6 +19,9 @@ export class AppComponent {
 
   toggleNav() {
     this.navBarOpen = !this.navBarOpen;
+  }
+
+  ngOnDestroy(): void {
   }
 
 
