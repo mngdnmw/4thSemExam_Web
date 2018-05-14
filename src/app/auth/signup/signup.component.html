@@ -1,3 +1,62 @@
-<p>
-  signup works!
-</p>
+<div fxLayout="row" fxLayoutAlign="center">
+  <mat-card fxFlex="50">
+    <mat-card-header>
+      <mat-card-title>Signup</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form (ngSubmit)="signup()"
+            [formGroup]="signupForm"
+            novalidate
+            fxLayout="column">
+        <mat-form-field fxFlex>
+          <input matInput
+                 placeholder="E-mail"
+                 formControlName="email">
+          <mat-error *ngIf="fcError('email', 'required')">
+            Email required
+          </mat-error>
+          <mat-error *ngIf="fcError('email', 'email', ['required'])">
+            Email is invalid
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex>
+          <input matInput
+                 placeholder="Password"
+                 type="password"
+                 formControlName="password">
+          <mat-error *ngIf="fcError('password', 'required')">
+            Password required
+          </mat-error>
+          <mat-error *ngIf="fcError('password', 'minlength', ['required'])">
+            Password needs to be at least 6 characters
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex>
+          <input matInput
+                 placeholder="Repeat Password"
+                 type="password"
+                 formControlName="repeatPassword">
+          <mat-error *ngIf="fcError('repeatPassword', 'required')">
+            Repeat password required
+          </mat-error>
+          <mat-error *ngIf="fcError('repeatPassword', 'no-match', ['required'])">
+            Repeat password does not match password
+          </mat-error>
+        </mat-form-field>
+        <button mat-button
+                color="primary"
+                type="submit"
+                [disabled]="signupForm.invalid">
+          Accept
+        </button>
+        <button mat-button
+                color="accent"
+                type="button"
+                (click)="clickBack()">
+          Go back
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -5,11 +5,13 @@ import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './auth/login/login.component';
 import {MapComponent} from './maps/map/map.component';
 import {AuthModule} from './auth/auth.module';
+import {SignupComponent} from './auth/signup/signup.component';
 
 const routes: Routes = [
   { path: 'albums', component: AlbumsListComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'map', component: MapComponent }
+  { path: 'map', component: MapComponent },
+  { path: 'signup', component: SignupComponent }
 ];
 
 @NgModule({

@@ -10,7 +10,8 @@ export class AppComponent implements OnDestroy {
     { route: '/', title: 'Home', icon: 'home' },
     { route: '/albums', title: 'Albums', icon: 'folder' },
     { route: '/map', title: 'Map', icon: 'map' },
-    { route: '/login', title: 'Login', icon: 'input' }
+    { route: '/login', title: 'Login', icon: 'input' },
+    {route: '/signup', title: 'Sign up', icon: 'create' }
   ];
  constructor() {
 
