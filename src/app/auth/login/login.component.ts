@@ -17,17 +17,12 @@ export class LoginComponent implements OnInit {
               private snackBar: MatSnackBar,
               private router: Router) {
     this.loginForm = fb.group({
-    email: '',
-    password: ''
+      email: '',
+      password: ''
     });
   }
 
   ngOnInit() {
-    /*
-    this.authService.logout()
-      .then(() => console.log('Logged out'))
-      .catch(error => console.log(error));
-*/
     this.authService.isAuthenticated()
       .subscribe(authState => console.log(authState),
         error1 => console.log(error1));
@@ -53,6 +48,20 @@ export class LoginComponent implements OnInit {
 
   clickSignup() {
     this.router.navigateByUrl('signup');
+  }
+
+  clickSignout() {
+    this.authService.logout()
+      .then(() => {
+        this.snackBar.open('You\'re logged out', '', {
+          duration: 2000
+        });
+      })
+      .catch(error => {
+        this.snackBar.open(error.message, '', {
+          duration: 3000
+        });
+      });
   }
 
 }
