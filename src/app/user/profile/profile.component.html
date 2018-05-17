@@ -1,41 +1,32 @@
 <div fxLayout="row" fxLayoutAlign="center">
-  <mat-card fxFlex="50">
+  <mat-card fxFlex="45">
     <mat-card-header>
       <mat-card-title>
-        <h4>Log In</h4>
+        <h2>
+          Emma Stone
+        </h2>
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate fxLayout="column">
-        <mat-form-field fxFlex>
-          <input matInput placeholder="E-mail" formControlName="email">
-        </mat-form-field>
-        <mat-form-field fxFlex>
-          <input matInput placeholder="Password" type="password" formControlName="password">
-        </mat-form-field>
-        <button mat-button
-                color="primary"
-                type="submit"
-                [disabled]="loginForm.invalid">
-          Log In
-        </button>
-        <button mat-button
-                color="accent"
-                type="button"
-                (click)="clickSignup()">
-          Sign Up
-        </button>
-      </form>
+      <p>Email: emma.stone@hollywood.com</p>
+      <p>UID: Q1B03EfIfxVpscLWGVyGvhKvX1g8</p>
+      <hr>
     </mat-card-content>
+    <mat-card-footer fxLayout="row">
+      <button class="button"
+              mat-raised-button
+              color="accent"
+              type="button">
+        Edit info
+      </button>
+      <p fxFlex="*"></p>
+      <button class="button"
+              mat-raised-button
+              color="accent"
+              type="button"
+              (click)="delete()">
+        Delete
+      </button>
+    </mat-card-footer>
   </mat-card>
-</div>
-<br>
-<div fxLayoutAlign="center">
-  <button mat-raised-button
-          *ngIf="authenticated"
-          color="warning"
-          type="button"
-          (click)="clickSignout()">
-    Log Out
-  </button>
 </div>

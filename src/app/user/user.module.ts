@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ProfileComponent} from './profile/profile.component';
 import {MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule} from '@angular/material';
+import {MatDialogModule} from '@angular/material/dialog';
 import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
@@ -11,9 +12,11 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatCardModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
   ],
   declarations: [ProfileComponent],
-  exports: [ProfileComponent]
+  exports: [ProfileComponent],
+  providers: []
 })
 export class UserModule { }

@@ -3,6 +3,7 @@ import {AngularFireAuth} from 'angularfire2/auth';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/operators';
 import {User} from '../../user/shared/user';
+import * as firebase from 'firebase';
 
 @Injectable()
 export class AuthService {
@@ -30,6 +31,16 @@ export class AuthService {
       .map(authState => {
         return authState !== null;
       });
+  }
+
+  deleteUser() {
+    const user = firebase.auth().currentUser;
+    console.log(user);
+    user.delete().then(function() {
+      console.log('User deleted');
+    }).catch(function(error) {
+      console.log(error);
+    });
   }
 
 }
