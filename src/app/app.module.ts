@@ -13,6 +13,7 @@ import {environment} from '../environments/environment';
 import {MapsModule} from './maps/maps.module';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
 import * as firebase from 'firebase';
+import {UserModule} from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import * as firebase from 'firebase';
     MatIconModule,
     MatListModule,
     SharedModule,
-    MapsModule
+    MapsModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

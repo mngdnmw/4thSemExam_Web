@@ -1,3 +1,19 @@
 .main-container {
   height: 100vh;
 }
+
+.sidenav {
+  width: 250px;
+  background: #cad6d7;
+}
+
+.content {
+  margin-left: 10px;
+  background: white;
+}
+
+.btn-nav {
+  align-self: right;
+  margin-right: 10px;
+  margin-top: 10px;
+}

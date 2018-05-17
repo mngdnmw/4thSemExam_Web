@@ -1,5 +1,5 @@
 <mat-sidenav-container class="main-container">
-  <mat-sidenav mode="side" position="end" [opened]="navBarOpen" style="background-color: coral">
+  <mat-sidenav class="sidenav" mode="side" position="end" [opened]="navBarOpen">
     <mat-nav-list>
 
       <a mat-list-item routerLink="/"><app-margin-icon [iconName]="'home'"></app-margin-icon> Front Page</a>
@@ -9,25 +9,21 @@
       <hr>
       <a mat-list-item routerLink="/login">
         <app-margin-icon [iconName]="'supervisor_account'"></app-margin-icon>
-        Sign Out</a>
+        Sign In</a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content class="content">
     <div fxLayout="row">
       <span fxFlex="33"></span>
       <h2 fxFlex="33" style="text-align: center">Welcome to BALLZ</h2>
       <span fxFlex="30"></span>
       <button mat-mini-fab
-              style="align-self: right"
+              class="btn-nav"
               color="accent"
               (click)="toggleNav()">
-        <app-margin-icon [iconName]="'list'"></app-margin-icon>
+        <app-margin-icon [iconName]="'menu'"></app-margin-icon>
       </button>
     </div>
-    <div style="margin-left: 10px">
-
-      <router-outlet></router-outlet>
-
-    </div>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

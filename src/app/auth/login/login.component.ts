@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../shared/auth.service';
 import {MatSnackBar} from '@angular/material';
 import {Router} from '@angular/router';
@@ -11,21 +11,20 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  authenticated: Boolean;
 
   constructor(private fb: FormBuilder,
               private authService: AuthService,
               private snackBar: MatSnackBar,
               private router: Router) {
     this.loginForm = fb.group({
-      email: '',
-      password: ''
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
   ngOnInit() {
-    this.authService.isAuthenticated()
-      .subscribe(authState => console.log(authState),
-        error1 => console.log(error1));
+    this.authenticate();
   }
 
   login() {
@@ -44,6 +43,8 @@ export class LoginComponent implements OnInit {
           duration: 3500
         });
       });
+
+    this.authenticate();
   }
 
   clickSignup() {
@@ -62,6 +63,14 @@ export class LoginComponent implements OnInit {
           duration: 3000
         });
       });
+  }
+
+  authenticate() {
+    this.authService.isAuthenticated()
+      .subscribe((authState => this.authenticated = authState),
+        (error => console.log(error)));
+
+    console.log(this.authenticated);
   }
 
 }
