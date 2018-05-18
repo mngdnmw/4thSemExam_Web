@@ -4,6 +4,9 @@ import {ProfileComponent} from './profile/profile.component';
 import {MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule} from '@angular/material';
 import {MatDialogModule} from '@angular/material/dialog';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {SharedService} from './shared/shared.service';
+import {PopupComponent} from '../shared/popup/popup.component';
+import {UserService} from './shared/user.service';
 
 @NgModule({
   imports: [
@@ -16,7 +19,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatDialogModule
   ],
   declarations: [ProfileComponent],
+  entryComponents: [PopupComponent],
   exports: [ProfileComponent],
-  providers: []
+  providers: [SharedService, UserService]
 })
 export class UserModule { }

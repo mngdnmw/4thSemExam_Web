@@ -33,14 +33,8 @@ export class AuthService {
       });
   }
 
-  deleteUser() {
-    const user = firebase.auth().currentUser;
-    console.log(user);
-    user.delete().then(function() {
-      console.log('User deleted');
-    }).catch(function(error) {
-      console.log(error);
-    });
+  getAuthUser() {
+
   }
 
 }

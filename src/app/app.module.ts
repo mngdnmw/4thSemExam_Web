@@ -14,6 +14,7 @@ import {MapsModule} from './maps/maps.module';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
 import * as firebase from 'firebase';
 import {UserModule} from './user/user.module';
+import {PopupComponent} from './shared/popup/popup.component';
 
 @NgModule({
   declarations: [

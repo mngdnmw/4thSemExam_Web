@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayoutAlign="center">
+<div fxLayout="row" fxLayoutAlign="center" *ngIf="user">
   <mat-card fxFlex="45">
     <mat-card-header>
       <mat-card-title>
@@ -8,8 +8,8 @@
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <p>Email: emma.stone@hollywood.com</p>
-      <p>UID: Q1B03EfIfxVpscLWGVyGvhKvX1g8</p>
+      <p>Email: {{user.email}}</p>
+      <p>UID: {{user.uid}}</p>
       <hr>
     </mat-card-content>
     <mat-card-footer fxLayout="row">
@@ -24,7 +24,7 @@
               mat-raised-button
               color="accent"
               type="button"
-              (click)="delete()">
+              (click)="openDialog()">
         Delete
       </button>
     </mat-card-footer>

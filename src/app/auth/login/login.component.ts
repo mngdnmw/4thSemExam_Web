@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private authService: AuthService,
-              private snackBar: MatSnackBar,
+              private snack: MatSnackBar,
               private router: Router) {
     this.loginForm = fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -33,13 +33,13 @@ export class LoginComponent implements OnInit {
       .then(() => {
         this.router.navigateByUrl('')
           .then(() => {
-            this.snackBar.open('You\'re logged in', '', {
+            this.snack.open('You\'re logged in', '', {
               duration: 2000
             });
           });
       })
       .catch(error => {
-        this.snackBar.open(error.message, '', {
+        this.snack.open(error.message, '', {
           duration: 3500
         });
       });
@@ -54,12 +54,12 @@ export class LoginComponent implements OnInit {
   clickSignout() {
     this.authService.logout()
       .then(() => {
-        this.snackBar.open('You\'re logged out', '', {
+        this.snack.open('You\'re logged out', '', {
           duration: 2000
         });
       })
       .catch(error => {
-        this.snackBar.open(error.message, '', {
+        this.snack.open(error.message, '', {
           duration: 3000
         });
       });
@@ -69,8 +69,6 @@ export class LoginComponent implements OnInit {
     this.authService.isAuthenticated()
       .subscribe((authState => this.authenticated = authState),
         (error => console.log(error)));
-
-    console.log(this.authenticated);
   }
 
 }
