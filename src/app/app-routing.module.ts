@@ -8,6 +8,7 @@ import {AuthModule} from './auth/auth.module';
 import {SignupComponent} from './auth/signup/signup.component';
 import {ProfileComponent} from './user/profile/profile.component';
 import {EditProfileComponent} from './user/edit-profile/edit-profile.component';
+import {ChangePassComponent} from './user/change-pass/change-pass.component';
 
 const routes: Routes = [
   { path: 'albums', component: AlbumsListComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'map', component: MapComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'editprofile', component: EditProfileComponent }
+  { path: 'changemail', component: EditProfileComponent },
+  { path: 'changepass', component: ChangePassComponent }
 ];
 
 @NgModule({

@@ -25,10 +25,6 @@ export class ProfileComponent implements OnInit {
     const dialogRef = this.dialog.open(PopupComponent, {
       width: '25vw'
     });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
   }
 
   // Gets current user
@@ -37,8 +33,12 @@ export class ProfileComponent implements OnInit {
   }
 
   // Changes the page to editprofile
-  editInfo() {
-    this.router.navigateByUrl('/editprofile');
+  changeEmail() {
+    this.router.navigateByUrl('/changemail');
+  }
+
+  changePassword() {
+    this.router.navigateByUrl('/changepass');
   }
 
 }

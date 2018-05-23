@@ -9,6 +9,7 @@ import {PopupComponent} from '../shared/popup/popup.component';
 import {UserService} from './shared/user.service';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { ChangePassComponent } from './change-pass/change-pass.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatDialogModule,
     ReactiveFormsModule
   ],
-  declarations: [ProfileComponent, EditProfileComponent],
+  declarations: [ProfileComponent, EditProfileComponent, ChangePassComponent],
   entryComponents: [PopupComponent],
   exports: [ProfileComponent, EditProfileComponent],
   providers: [SharedService, UserService]

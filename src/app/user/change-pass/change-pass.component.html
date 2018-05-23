@@ -1,0 +1,60 @@
+<div fxLayout="row" fxLayoutAlign="center">
+  <mat-card fxFlex="45">
+    <mat-card-header>
+      <mat-card-title>
+        <h2>
+          Emma Stone
+        </h2>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="passwordForm" novalidate>
+        <mat-form-field fxFlex="100" fxLayout="row">
+          <p>Old password:</p>
+          <input matInput type="password" placeholder="" formControlName="oldPass">
+        </mat-form-field>
+        <mat-error *ngIf="fcError('oldPass', 'required')">
+          Old password required
+        </mat-error>
+        <mat-form-field fxFlex="100" fxLayout="row">
+          <p>New password:</p>
+          <input matInput type="password" placeholder="" formControlName="password">
+        </mat-form-field>
+        <mat-error *ngIf="fcError('password', 'required')">
+          Password required
+        </mat-error>
+        <mat-error *ngIf="fcError('password', 'minLength', ['required'])">
+          Password needs to be at least 6 characters
+        </mat-error>
+        <mat-form-field fxFlex="100" fxLayout="row">
+          <p>Retype old password:</p>
+          <input matInput type="password" placeholder="" formControlName="confirmNewPass">
+        </mat-form-field>
+        <mat-error *ngIf="fcError('confirmNewPass', 'required')">
+          Repeat password required
+        </mat-error>
+        <mat-error *ngIf="fcError('confirmNewPass', 'no-match', ['required'])">
+          Repeat password does not match password
+        </mat-error>
+      </form>
+    </mat-card-content>
+    <mat-card-footer fxLayout="row">
+      <button class="button"
+              mat-raised-button
+              color="accent"
+              type="button"
+              (click)="cancel()">
+        Cancel
+      </button>
+      <p fxFlex="*"></p>
+      <button class="button"
+              mat-raised-button
+              color="accent"
+              type="button"
+              [disabled]="passwordForm.invalid"
+              (click)="reauthenticateUser()">
+        Save
+      </button>
+    </mat-card-footer>
+  </mat-card>
+</div>

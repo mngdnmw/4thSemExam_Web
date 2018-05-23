@@ -63,4 +63,16 @@ export class UserService {
     });
   }
 
+  // Update password
+  updatePassword(newPass: string): Promise<any> {
+    const user = firebase.auth().currentUser;
+
+    return user.updatePassword(newPass).then(function() {
+      // Update successful.
+    }).catch(function(error) {
+      // An error happened.
+      console.log('Error updating password');
+      console.log(error);
+    });
+  }
 }

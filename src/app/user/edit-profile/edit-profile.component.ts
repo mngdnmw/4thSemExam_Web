@@ -16,7 +16,7 @@ export class EditProfileComponent implements OnInit {
 
   constructor(private userService: UserService,
               private router: Router,
-              private snackBar: MatSnackBar,
+              private snack: MatSnackBar,
               private fb: FormBuilder) {
     this.updateForm = fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -39,11 +39,11 @@ export class EditProfileComponent implements OnInit {
 
     this.userService.updateEmail(updateModel.email)
       .then(() =>
-        this.snackBar.open('Email updated', '', {
+        this.snack.open('Email updated', '', {
       duration: 3000
     }))
       .catch(error => {
-        this.snackBar.open(error, '', {
+        this.snack.open(error, '', {
           duration: 5000
         });
       });
@@ -58,7 +58,7 @@ export class EditProfileComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigateByUrl('');
+    this.router.navigateByUrl('/profile');
   }
 
 }

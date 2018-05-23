@@ -8,9 +8,12 @@
       <a mat-list-item routerLink="/profile"><app-margin-icon [iconName]="'account_circle'"></app-margin-icon> Profile</a>
 
       <hr>
-      <a mat-list-item routerLink="/login">
+      <a *ngIf="!authenticated" mat-list-item routerLink="/login">
         <app-margin-icon [iconName]="'supervisor_account'"></app-margin-icon>
         Sign In</a>
+      <a *ngIf="authenticated" mat-list-item (click)="logout()">
+        <app-margin-icon [iconName]="'skip_next'"></app-margin-icon>
+        Sign out</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content class="content">
