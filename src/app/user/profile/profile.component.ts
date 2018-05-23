@@ -18,7 +18,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.getUser();
-    console.log(this.user);
   }
 
   // Opens Dialog
