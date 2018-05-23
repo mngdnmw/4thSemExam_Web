@@ -19,12 +19,12 @@ export class ChangePassComponent implements OnInit {
               private fb: FormBuilder,
               private userService: UserService,
               private snack: MatSnackBar) {
-  this.passwordForm = fb.group({
-    oldPass: ['', [Validators.required]],
-    password: ['', [Validators.required, Validators.minLength(6)]],
-    confirmNewPass: ['', [Validators.required, matchPassword()]]
-  });
-}
+    this.passwordForm = fb.group({
+      oldPass: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmNewPass: ['', [Validators.required, matchPassword()]]
+    });
+  }
 
   ngOnInit() {
     this.getUser();
@@ -44,9 +44,10 @@ export class ChangePassComponent implements OnInit {
       .then(() => this.snack.open('Password updated', '', {
         duration: 3000}))
       .catch((error) =>
-      this.snack.open(error, '', {
-      duration: 5000
-    }));
+        this.snack.open(error, '', {
+          duration: 5000
+        })
+      );
   }
 
   // Reauthenticate user and then call updatePassword()
@@ -54,9 +55,10 @@ export class ChangePassComponent implements OnInit {
     const passwordModel = this.passwordForm.value;
     this.userService.reauthenticateUser(passwordModel.oldPass)
       .then(() => this.updatePassword())
-      .catch(error => this.snack.open(error, '', {
-        duration: 5000
-      }));
+      .catch((error) =>
+        this.snack.open(error, '', {
+          duration: 5000
+        }));
   }
 
   cancel() {
