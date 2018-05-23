@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 })
 export class EditProfileComponent implements OnInit {
   user: User;
+  email: string;
   constructor(private userService: UserService,
               private router: Router) { }
 
@@ -23,7 +24,7 @@ export class EditProfileComponent implements OnInit {
   }
 
   save() {
-    console.log('Saved');
+    this.userService.updateUser(this.email);
   }
 
   cancel() {
