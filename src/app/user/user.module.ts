@@ -7,6 +7,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {SharedService} from './shared/shared.service';
 import {PopupComponent} from '../shared/popup/popup.component';
 import {UserService} from './shared/user.service';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   imports: [
@@ -18,9 +19,9 @@ import {UserService} from './shared/user.service';
     MatInputModule,
     MatDialogModule
   ],
-  declarations: [ProfileComponent],
+  declarations: [ProfileComponent, EditProfileComponent],
   entryComponents: [PopupComponent],
-  exports: [ProfileComponent],
+  exports: [ProfileComponent, EditProfileComponent],
   providers: [SharedService, UserService]
 })
 export class UserModule { }

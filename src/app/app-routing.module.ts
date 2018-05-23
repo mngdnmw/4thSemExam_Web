@@ -7,13 +7,15 @@ import {MapComponent} from './maps/map/map.component';
 import {AuthModule} from './auth/auth.module';
 import {SignupComponent} from './auth/signup/signup.component';
 import {ProfileComponent} from './user/profile/profile.component';
+import {EditProfileComponent} from './user/edit-profile/edit-profile.component';
 
 const routes: Routes = [
   { path: 'albums', component: AlbumsListComponent },
   { path: 'login', component: LoginComponent },
   { path: 'map', component: MapComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'profile', component: ProfileComponent }
+  { path: 'profile', component: ProfileComponent },
+  { path: 'editprofile', component: EditProfileComponent }
 ];
 
 @NgModule({
