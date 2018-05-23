@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('')
           .then(() => {
             this.snack.open('You\'re logged in', '', {
-              duration: 2000
+              duration: 3000
             });
           });
       })

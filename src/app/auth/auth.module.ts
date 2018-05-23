@@ -17,7 +17,8 @@ import {SignupComponent} from './signup/signup.component';
     MatButtonModule,
     MatInputModule,
     AngularFireAuthModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    ReactiveFormsModule
   ],
   declarations: [LoginComponent, SignupComponent],
   providers: [AuthService]

@@ -8,13 +8,13 @@
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <div fxLayout="row">
+      <form fxLayout="row" [formGroup]="updateForm" novalidate>
         <p>Email:</p>
-        <input matInput placeholder=" {{user.email}}">
-      </div>
+        <input matInput placeholder=" {{user?.email}}" formControlName="email">
+      </form>
       <div fxLayout="row">
         <p>UID:</p>
-        <input matInput placeholder=" {{user.uid}}" [disabled]>
+        <input matInput value=" {{user?.uid}}" [disabled]="true">
       </div>
       <hr>
     </mat-card-content>
@@ -31,7 +31,7 @@
               mat-raised-button
               color="accent"
               type="button"
-              (click)="save()">
+              (click)="updateEmail()">
         Save
       </button>
     </mat-card-footer>

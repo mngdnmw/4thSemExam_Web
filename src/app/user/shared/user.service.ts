@@ -7,7 +7,7 @@ import {MatSnackBar} from '@angular/material';
 export class UserService {
   user: User;
 
-  constructor(private snack: MatSnackBar) { }
+  constructor() { }
 
 
   // Deletes current user
@@ -30,15 +30,30 @@ export class UserService {
     }
   }
 
-  // Update user
-  updateUser(email: string) {
+  // Update email
+  updateEmail(email: string) {
     const user = firebase.auth().currentUser;
 
     user.updateEmail(email).then(function() {
       // Update successful.
+      console.log(firebase.auth().currentUser);
+    }).catch(function(error) {
+      // An error happened.
+      console.log(error);
+    });
+  }
+/*
+  // Re-authenticate user
+  reauthenticateUser() {
+    const user = firebase.auth().currentUser;
+    const credential;
+
+    // Prompt the user to re-provide their sign-in credentials
+    user.reauthenticateAndRetrieveDataWithCredential(credential).then(function() {
+      // User re-authenticated.
     }).catch(function(error) {
       // An error happened.
     });
-  }
+  }*/
 
 }
