@@ -8,14 +8,20 @@
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <form fxLayout="row" [formGroup]="updateForm" novalidate>
-        <p>Email:</p>
-        <input matInput placeholder=" {{user?.email}}" formControlName="email">
+      <form [formGroup]="updateForm" novalidate>
+        <div fxLayout="row">
+          <p fxFlex="25">UID:</p>
+          <p>{{user?.uid}}</p>
+        </div>
+        <div fxLayout="row">
+          <p fxFlex="25"> Email:</p>
+          <input matInput placeholder="{{user?.email}}" formControlName="email">
+        </div>
+        <div fxLayout="row">
+          <p fxFlex="25">Password:</p>
+          <input matInput placeholder="" type="password" formControlName="password">
+        </div>
       </form>
-      <div fxLayout="row">
-        <p>UID:</p>
-        <input matInput value=" {{user?.uid}}" [disabled]="true">
-      </div>
       <hr>
     </mat-card-content>
     <mat-card-footer fxLayout="row">
@@ -31,7 +37,8 @@
               mat-raised-button
               color="accent"
               type="button"
-              (click)="updateEmail()">
+              [disabled]="updateForm.invalid"
+              (click)="reauthenticateUser()">
         Save
       </button>
     </mat-card-footer>

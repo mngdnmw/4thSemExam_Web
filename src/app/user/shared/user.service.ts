@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {User} from './user';
 import * as firebase from 'firebase';
 import {MatSnackBar} from '@angular/material';
+import * as admin from 'firebase-admin';
+import Credential = admin.credential.Credential;
 
 @Injectable()
 export class UserService {
@@ -31,10 +33,10 @@ export class UserService {
   }
 
   // Update email
-  updateEmail(email: string) {
+  updateEmail(email: string): Promise<any> {
     const user = firebase.auth().currentUser;
 
-    user.updateEmail(email).then(function() {
+    return user.updateEmail(email).then(function() {
       // Update successful.
       console.log(firebase.auth().currentUser);
     }).catch(function(error) {
@@ -42,18 +44,23 @@ export class UserService {
       console.log(error);
     });
   }
-/*
+
   // Re-authenticate user
-  reauthenticateUser() {
-    const user = firebase.auth().currentUser;
-    const credential;
+  reauthenticateUser(userProvidedPassword: string) {
+    const currentUser = firebase.auth().currentUser;
+    const credential = firebase.auth.EmailAuthProvider.credential(
+      currentUser.email,
+      userProvidedPassword
+    );
 
     // Prompt the user to re-provide their sign-in credentials
-    user.reauthenticateAndRetrieveDataWithCredential(credential).then(function() {
+    currentUser.reauthenticateAndRetrieveDataWithCredential(credential).then(function() {
       // User re-authenticated.
+      console.log('User reauthenticated');
     }).catch(function(error) {
       // An error happened.
+      console.log(error);
     });
-  }*/
+  }
 
 }
