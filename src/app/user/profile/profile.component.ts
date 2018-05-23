@@ -12,14 +12,16 @@ import {UserService} from 'app/user/shared/user.service';
 })
 export class ProfileComponent implements OnInit {
   user: User;
+  authenticated: Boolean;
   constructor(private authService: AuthService,
               private dialog: MatDialog,
               private userService: UserService) {}
 
   ngOnInit() {
-    
+    this.getUser();
   }
 
+  // Opens Dialog
   openDialog(): void {
     const dialogRef = this.dialog.open(PopupComponent, {
       width: '25vw'
@@ -30,7 +32,9 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  // Gets current user
   getUser() {
+    this.user = this.userService.getUser();
   }
 
 
