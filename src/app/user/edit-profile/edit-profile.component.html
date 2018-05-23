@@ -10,19 +10,19 @@
     <mat-card-content>
       <form [formGroup]="updateForm" novalidate>
         <div fxLayout="row">
-          <p fxFlex="25">UID:</p>
-          <p>{{user?.uid}}</p>
-        </div>
-        <div fxLayout="row">
           <p fxFlex="25"> Email:</p>
           <input matInput placeholder="{{user?.email}}" formControlName="email">
         </div>
         <div fxLayout="row">
           <p fxFlex="25">Password:</p>
-          <input matInput placeholder="" type="password" formControlName="password">
+          <input matInput placeholder="******" type="password" formControlName="password">
+        </div>
+        <hr>
+        <div fxLayout="row">
+          <small fxFlex="25">UID:</small>
+          <small>{{user?.uid}}</small>
         </div>
       </form>
-      <hr>
     </mat-card-content>
     <mat-card-footer fxLayout="row">
       <button class="button"
