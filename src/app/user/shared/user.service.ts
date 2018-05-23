@@ -46,7 +46,7 @@ export class UserService {
   }
 
   // Re-authenticate user
-  reauthenticateUser(userProvidedPassword: string) {
+  reauthenticateUser(userProvidedPassword: string): Promise<any> {
     const currentUser = firebase.auth().currentUser;
     const credential = firebase.auth.EmailAuthProvider.credential(
       currentUser.email,
@@ -54,7 +54,7 @@ export class UserService {
     );
 
     // Prompt the user to re-provide their sign-in credentials
-    currentUser.reauthenticateAndRetrieveDataWithCredential(credential).then(function() {
+    return currentUser.reauthenticateAndRetrieveDataWithCredential(credential).then(function() {
       // User re-authenticated.
       console.log('User reauthenticated');
     }).catch(function(error) {

@@ -45,17 +45,19 @@ export class ChangePassComponent implements OnInit {
         duration: 3000}))
       .catch((error) =>
       this.snack.open(error, '', {
-      duration: 3000
+      duration: 5000
     }));
   }
 
   // Reauthenticate user and then call updatePassword()
   reauthenticateUser() {
     const passwordModel = this.passwordForm.value;
-    this.userService.reauthenticateUser(passwordModel.oldPass);
-    this.updatePassword();
+    this.userService.reauthenticateUser(passwordModel.oldPass)
+      .then(() => this.updatePassword())
+      .catch(error => this.snack.open(error, '', {
+        duration: 5000
+      }));
   }
-
 
   cancel() {
     this.router.navigateByUrl('/profile');
