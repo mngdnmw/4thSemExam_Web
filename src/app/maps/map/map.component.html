@@ -8,7 +8,7 @@
 <mat-nav-list fxFlex="40">
   <h2 mat-subheader>Latest observed balls</h2>
   <mat-list-item *ngFor="let ball of ballsArray" (click)="clickBall(ball)">
-    <img src="../../../assets/tennisball.png" height="64" width="64" alt="'{{ball?.name}}'">
+    <img [src]="imgUrl" height="64" width="64" alt="'{{ball?.name}}'">
     <h3 mat-line>{{ball?.name}}</h3>
     <p mat-line><small>ID: {{ball?.id}}</small></p>
     <p mat-line>Time: {{ball?.timestamp}}</p>

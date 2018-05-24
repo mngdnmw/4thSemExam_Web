@@ -12,6 +12,8 @@ export class MapComponent implements OnInit {
   db = firebase.firestore();
   ballsArray = [];
   currentBall: Ball;
+  imgUrl: string;
+  path = 'images/test.jpg';
 
   constructor(public bs: BallService) {
     if (!this.ballsArray) {
@@ -21,6 +23,7 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     this.getBalls();
+    this.getImages();
   }
 
   getBalls() {
@@ -41,6 +44,11 @@ export class MapComponent implements OnInit {
     } else {
       this.currentBall = ball;
     }
+  }
+
+  // Downloads image(s) from Firebase Storage
+  getImages() {
+    this.bs.getImageFromFirebase(this.path, this.imgUrl);
   }
 
 }
