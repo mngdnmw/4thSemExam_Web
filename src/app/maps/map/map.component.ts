@@ -49,6 +49,7 @@ export class MapComponent implements OnInit {
   // Downloads image(s) from Firebase Storage
   getImages() {
     this.bs.getImageFromFirebase(this.path).then(
+      // Set imgUrl to the url from Firebase
       url => this.imgUrl = url).catch(
       function(error) {
         // A full list of error codes is available at
