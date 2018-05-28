@@ -6,7 +6,6 @@ import * as firebase from 'firebase';
 
 @Injectable()
 export class BallService {
-
   constructor(private afs: AngularFirestore) {
     afs.firestore.settings({ timestampsInSnapshots: true });
   }
@@ -26,6 +25,15 @@ export class BallService {
 
     // Get the download URL
     return picRef.getDownloadURL();
+  }
+
+  // Deletes Ball     NB!! Catch des not work! + needs UID parameter
+  delete() {
+    this.afs.collection('pictures').doc('4w9kxeJ1BK6idhtpXyd3').delete().then(() => {
+      console.log('Document successfully deleted');
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
 }

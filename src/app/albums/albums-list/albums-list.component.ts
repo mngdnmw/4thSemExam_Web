@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Picture} from '../../shared/pictureBE/picture';
+import {BallService} from '../../shared/ball/ball.service';
 
 @Component({
   selector: 'app-albums-list',
@@ -7,27 +7,24 @@ import {Picture} from '../../shared/pictureBE/picture';
   styleUrls: ['./albums-list.component.css']
 })
 export class AlbumsListComponent implements OnInit {
+  ballsArray = [];
 
-  pictures: Picture[] = [];
-
-  constructor() {
-
-    for (let i = 1; i < 10; i++) {
-      const picture: Picture = {
-          id: i.toString(),
-          dateCreated: i,
-          location: i,
-          name: i.toString(),
-          imgURl: '../../../assets/ball_pic.jpeg'
-        }
-      ;
-      this.pictures.push(picture);
-    }
+  constructor(private bs: BallService) {
 
   }
 
   ngOnInit() {
+    this.getBalls();
   }
 
+  getBalls() {
+    this.bs.getAllBalls().subscribe(balls => {
+      this.ballsArray = balls;
+    });
+  }
+
+  deleteBall() {
+    this.bs.delete();
+  }
 
 }

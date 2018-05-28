@@ -1,12 +1,15 @@
 <div fxLayout="row wrap" fxLayoutGap="2rem" fxLayoutAlign="center" >
-  <div class="card" *ngFor="let picture of pictures">
+  <div class="card" *ngFor="let ball of ballsArray">
     <mat-card class="card">
       <mat-card-header>
-        <div mat-card-avatar class="header-image"></div>
-        <mat-card-title>Name: {{picture.name}}</mat-card-title>
-        <mat-card-subtitle>Date created: {{picture.dateCreated}}</mat-card-subtitle>
+        <mat-card-title>Spotted: {{ball?.time}}</mat-card-title>
       </mat-card-header>
-      <img mat-card-image src={{picture.imgURl}} alt="Photo of a ball">
+      <mat-card-content>Longitude: {{ball?.longitude}}</mat-card-content>
+      <mat-card-content>Latitude: {{ball?.latitude}}</mat-card-content>
+      <mat-card-footer>
+        <img mat-card-image src="../../../assets/8ball.png" height="100" width="100" alt="Photo of a ball"/>
+        <button mat-button (click)="deleteBall()">Delete Ball</button>
+      </mat-card-footer>
     </mat-card>
   </div>
 </div>

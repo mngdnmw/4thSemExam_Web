@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import {User} from './user';
 import * as firebase from 'firebase';
-import {MatSnackBar} from '@angular/material';
-import * as admin from 'firebase-admin';
-import Credential = admin.credential.Credential;
 
 @Injectable()
 export class UserService {
