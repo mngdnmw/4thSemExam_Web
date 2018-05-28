@@ -7,6 +7,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {AuthService} from './shared/auth.service';
 import {SignupComponent} from './signup/signup.component';
+import {AuthGuard} from './shared/auth-guard.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -21,6 +22,6 @@ import {SignupComponent} from './signup/signup.component';
     ReactiveFormsModule
   ],
   declarations: [LoginComponent, SignupComponent],
-  providers: [AuthService]
+  providers: [AuthService, AuthGuard]
 })
 export class AuthModule { }

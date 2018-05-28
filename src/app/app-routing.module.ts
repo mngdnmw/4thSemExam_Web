@@ -9,15 +9,16 @@ import {SignupComponent} from './auth/signup/signup.component';
 import {ProfileComponent} from './user/profile/profile.component';
 import {EditProfileComponent} from './user/edit-profile/edit-profile.component';
 import {ChangePassComponent} from './user/change-pass/change-pass.component';
+import {AuthGuard} from './auth/shared/auth-guard.service';
 
 const routes: Routes = [
-  { path: 'albums', component: AlbumsListComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'albums', component: AlbumsListComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   { path: 'map', component: MapComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'changemail', component: EditProfileComponent },
-  { path: 'changepass', component: ChangePassComponent }
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'changemail', component: EditProfileComponent, canActivate: [AuthGuard] },
+  { path: 'changepass', component: ChangePassComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
