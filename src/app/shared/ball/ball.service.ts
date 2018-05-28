@@ -12,7 +12,7 @@ export class BallService {
   }
 
   public getAllBalls(): Observable<Ball[]> {
-  return this.afs.collection<Ball>('balls').valueChanges();
+  return this.afs.collection<Ball>('pictures').valueChanges();
   }
 
   // Downloads image from Firebase Storage

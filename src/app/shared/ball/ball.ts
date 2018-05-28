@@ -1,8 +1,7 @@
 export interface Ball {
-  id?: string;
+  uid?: string;
   latitude?: number;
   longitude?: number;
-  name?: string;
-  timestamp?: string;
+  time?: string;
 }
 
