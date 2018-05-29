@@ -70,23 +70,26 @@ exports.deleteImageStored = functions.storage.object().onDelete((object) => {
 
 });
 
-//
-// /*
-// ** Deletes the image file in storage when the corresponding image document has been deleted from firestore.
-//  */
-//
-// exports.deleteImageDocument = functions.firestore.document('pictures/{uid}').onDelete((snap, context) => {
-//   // Get an object representing the document prior to deletion
-//   const uid = snap.data.uid;
-//   return admin.storage().bucket().delete().then(function () {
-//     console.log('Document successfully deleted!');
-//     return;
-//   }).catch(function (err) {
-//     console.log('Unable to delete document.', err);
-//     return null;
-//   });
-//
-// });
+
+/*
+** Deletes the image file in storage when the corresponding image document has been deleted from firestore.
+ */
+
+exports.deleteImageDocument = functions.firestore.document('pictures/{uid}').onDelete((snap, context) => {
+
+  const fileName = 'images/' + snap.data().uid + '.jpg';
+  const bucket = admin.storage().bucket();
+
+
+  return bucket.file(fileName).delete().then(function () {
+    console.log('Document successfully deleted!');
+    return;
+  }).catch(function (err) {
+    console.log('Unable to delete document.', err);
+    return null;
+  });
+
+});
 
 
 
