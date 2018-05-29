@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import {User} from './user';
 import * as firebase from 'firebase';
-import {MatSnackBar} from '@angular/material';
-import * as admin from 'firebase-admin';
-import Credential = admin.credential.Credential;
 
 @Injectable()
 export class UserService {
@@ -15,7 +12,6 @@ export class UserService {
   // Deletes current user
   deleteUser() {
     const user = firebase.auth().currentUser;
-    console.log(user);
     user.delete().then(function () {
       console.log('User deleted');
     }).catch(function (error) {

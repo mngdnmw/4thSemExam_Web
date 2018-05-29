@@ -1,41 +1,38 @@
-<!-- this creates a google map on the page with the given lat/lng from -->
-<!-- the component as the initial center of the map: -->
-
-<div *ngIf="ballsArray" fxLayout="row">
-<agm-map fxFlex="60" [latitude]="currentBall?.latitude" [longitude]="currentBall?.longitude">
-  <agm-marker *ngFor="let ball of ballsArray" [latitude]="ball?.latitude" [longitude]="ball?.longitude"></agm-marker>
-</agm-map>
-<mat-nav-list fxFlex="40">
-  <mat-card>
-    <h2 mat-subheader>Latest observed balls</h2>
-    <mat-card-content>
-      <mat-tab-group class="demo-tab-group">
-        <mat-tab label="Tab 1">
-          <ng-template mat-tab-label><p>1</p></ng-template>
-          <div class="demo-tab-content">
-            <mat-list-item *ngFor="let ball of ballsArray | slice: 0 : 5" (click)="clickBall(ball)">
-              <img [src]="imgUrl" height="64" width="64">
-              <p mat-line>Time: {{ball?.time}}</p>
-              <p mat-line>Longitude: {{ball?.longitude}}</p>
-              <p mat-line>Latitude: {{ball?.latitude}}</p>
-            </mat-list-item>
-          </div>
-        </mat-tab>
-        <mat-tab label="Tab 2">
-          <ng-template mat-tab-label><p>2</p></ng-template>
-          <div class="demo-tab-content">
-            <mat-list-item *ngFor="let ball of ballsArray | slice: 5 : 10" (click)="clickBall(ball)">
-              <img [src]="imgUrl" height="64" width="64">
-              <p mat-line>Time: {{ball?.time}}</p>
-              <p mat-line>Longitude: {{ball?.longitude}}</p>
-              <p mat-line>Latitude: {{ball?.latitude}}</p>
-            </mat-list-item>
-          </div>
-        </mat-tab>
-      </mat-tab-group>
-    </mat-card-content>
-  </mat-card>
-</mat-nav-list>
+<div fxLayout="row" fxLayoutAlign="top" class="shell">
+  <!-- Google Map -->
+  <agm-map fxFlex="70" [latitude]="currentBall?.latitude" [longitude]="currentBall?.longitude">
+    <agm-marker *ngFor="let ball of ballsArray" [latitude]="ball?.latitude" [longitude]="ball?.longitude"></agm-marker>
+  </agm-map>
+  <!-- Latest balls -->
+  <mat-nav-list fxFlex="30">
+    <mat-card>
+      <h2 mat-subheader>Latest observed balls</h2>
+      <mat-card-content>
+        <mat-tab-group class="demo-tab-group">
+          <mat-tab label="Tab 1">
+            <ng-template mat-tab-label><p>1</p></ng-template>
+            <div class="demo-tab-content">
+              <mat-list-item *ngFor="let ball of ballsArray | slice: 0 : 5" (click)="clickBall(ball)">
+                <img [src]="ball?.imgUrl" height="64" width="64">
+                <p mat-line>Time: {{ball?.time}}</p>
+                <p mat-line>Longitude: {{ball?.longitude}}</p>
+                <p mat-line>Latitude: {{ball?.latitude}}</p>
+              </mat-list-item>
+            </div>
+          </mat-tab>
+          <mat-tab label="Tab 2" *ngIf="ballsArray.length > 5">
+            <ng-template mat-tab-label><p>2</p></ng-template>
+            <div class="demo-tab-content">
+              <mat-list-item *ngFor="let ball of ballsArray | slice: 5 : 10" (click)="clickBall(ball)">
+                <img [src]="ball?.imgUrl" height="64" width="64">
+                <p mat-line>Time: {{ball?.time}}</p>
+                <p mat-line>Longitude: {{ball?.longitude}}</p>
+                <p mat-line>Latitude: {{ball?.latitude}}</p>
+              </mat-list-item>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </mat-card-content>
+    </mat-card>
+  </mat-nav-list>
 </div>
-
-

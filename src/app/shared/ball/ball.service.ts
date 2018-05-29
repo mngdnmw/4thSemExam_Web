@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import {Ball} from './ball';
-import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { AngularFirestore } from 'angularfire2/firestore';
 import {Observable} from 'rxjs/Observable';
 import * as firebase from 'firebase';
 
 @Injectable()
 export class BallService {
-
   constructor(private afs: AngularFirestore) {
     afs.firestore.settings({ timestampsInSnapshots: true });
   }
@@ -26,6 +25,15 @@ export class BallService {
 
     // Get the download URL
     return picRef.getDownloadURL();
+  }
+
+  // Deletes Ball
+  delete(ball: Ball) {
+    this.afs.collection('pictures/').doc(ball.uid).delete().then(() => {
+      console.log('Document successfully deleted');
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
 }

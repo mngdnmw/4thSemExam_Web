@@ -1,13 +1,23 @@
-<div fxLayout="row wrap" fxLayoutGap="2rem" fxLayoutAlign="center" >
-  <div class="card" *ngFor="let picture of pictures">
+<div class="container shell">
+  <div class="row">
+    <div class="col-lg-4 col-sm-6 col-xs-12" *ngFor="let ball of ballsArray">
     <mat-card class="card">
       <mat-card-header>
-        <div mat-card-avatar class="header-image"></div>
-        <mat-card-title>Name: {{picture.name}}</mat-card-title>
-        <mat-card-subtitle>Date created: {{picture.dateCreated}}</mat-card-subtitle>
+        <mat-card-title>Spotted: {{ball?.time}}</mat-card-title>
+        <mat-card-subtitle>ID: {{ball?.uid}}</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image src={{picture.imgURl}} alt="Photo of a ball">
+      <img mat-card-image [src]="ball?.imgUrl" alt="Photo of ball">
+      <mat-card-content>
+        <p>Longitude: {{ball?.longitude}}</p>
+        <p>Latitude: {{ball?.latitude}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <span fxFlexAlign="end"></span>
+        <button mat-stroked-button color="warn" (click)="deleteBall(ball)">
+          Delete
+        </button>
+      </mat-card-actions>
     </mat-card>
+    </div>
   </div>
 </div>
-

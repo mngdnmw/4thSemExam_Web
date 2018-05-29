@@ -9,6 +9,7 @@
 
 .content {
   margin-left: 10px;
+  margin-right: 10px;
   background: white;
 }
 
@@ -16,4 +17,10 @@
   align-self: right;
   margin-right: 10px;
   margin-top: 10px;
+}
+
+.title-row {
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 5px;
 }
