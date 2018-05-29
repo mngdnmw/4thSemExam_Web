@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Ball} from './ball';
-import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { AngularFirestore } from 'angularfire2/firestore';
 import {Observable} from 'rxjs/Observable';
 import * as firebase from 'firebase';
 
@@ -27,9 +27,9 @@ export class BallService {
     return picRef.getDownloadURL();
   }
 
-  // Deletes Ball     NB!! Catch des not work! + needs UID parameter
-  delete() {
-    this.afs.collection('pictures').doc('4w9kxeJ1BK6idhtpXyd3').delete().then(() => {
+  // Deletes Ball
+  delete(ball: Ball) {
+    this.afs.collection('pictures/').doc(ball.uid).delete().then(() => {
       console.log('Document successfully deleted');
     }).catch((error) => {
       console.log(error);

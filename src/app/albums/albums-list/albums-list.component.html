@@ -1,16 +1,17 @@
-<div fxLayout="row wrap" fxLayoutGap="2rem" fxLayoutAlign="center" >
-  <div class="card" *ngFor="let ball of ballsArray">
-    <mat-card class="card">
-      <mat-card-header>
-        <mat-card-title>Spotted: {{ball?.time}}</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>Longitude: {{ball?.longitude}}</mat-card-content>
-      <mat-card-content>Latitude: {{ball?.latitude}}</mat-card-content>
-      <mat-card-footer>
-        <img mat-card-image src="../../../assets/8ball.png" height="100" width="100" alt="Photo of a ball"/>
-        <button mat-button (click)="deleteBall()">Delete Ball</button>
-      </mat-card-footer>
-    </mat-card>
-  </div>
+<div fxLayout="row">
+  <mat-card class="col-4" *ngFor="let ball of ballsArray">
+    <mat-card-header>
+      <div mat-card-avatar></div>
+      <mat-card-title>Spotted: {{ball?.time}}</mat-card-title>
+      <mat-card-subtitle>UID: {{ball?.uid}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="ball?.imgUrl" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>Longitude: {{ball?.longitude}}</p>
+      <p>Latitude: {{ball?.latitude}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="deleteBall(ball)">Delete Ball</button>
+    </mat-card-actions>
+  </mat-card>
 </div>
-

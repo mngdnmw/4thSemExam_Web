@@ -12,7 +12,6 @@ export class UserService {
   // Deletes current user
   deleteUser() {
     const user = firebase.auth().currentUser;
-    console.log(user);
     user.delete().then(function () {
       console.log('User deleted');
     }).catch(function (error) {

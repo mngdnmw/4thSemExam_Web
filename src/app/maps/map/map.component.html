@@ -14,7 +14,7 @@
           <ng-template mat-tab-label><p>1</p></ng-template>
           <div class="demo-tab-content">
             <mat-list-item *ngFor="let ball of ballsArray | slice: 0 : 5" (click)="clickBall(ball)">
-              <img [src]="imgUrl" height="64" width="64">
+              <img [src]="ball?.imgUrl" height="64" width="64">
               <p mat-line>Time: {{ball?.time}}</p>
               <p mat-line>Longitude: {{ball?.longitude}}</p>
               <p mat-line>Latitude: {{ball?.latitude}}</p>
@@ -25,7 +25,7 @@
           <ng-template mat-tab-label><p>2</p></ng-template>
           <div class="demo-tab-content">
             <mat-list-item *ngFor="let ball of ballsArray | slice: 5 : 10" (click)="clickBall(ball)">
-              <img [src]="imgUrl" height="64" width="64">
+              <img [src]="ball?.imgUrl" height="64" width="64">
               <p mat-line>Time: {{ball?.time}}</p>
               <p mat-line>Longitude: {{ball?.longitude}}</p>
               <p mat-line>Latitude: {{ball?.latitude}}</p>

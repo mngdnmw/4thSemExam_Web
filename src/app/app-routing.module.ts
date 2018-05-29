@@ -13,7 +13,7 @@ import {AuthGuard} from './auth/shared/auth-guard.service';
 
 const routes: Routes = [
   { path: 'albums', component: AlbumsListComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
   { path: 'map', component: MapComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },

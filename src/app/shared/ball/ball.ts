@@ -3,5 +3,6 @@ export interface Ball {
   latitude?: number;
   longitude?: number;
   time?: string;
+  imgUrl?: string;
 }
 

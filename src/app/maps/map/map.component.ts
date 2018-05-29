@@ -12,8 +12,7 @@ export class MapComponent implements OnInit {
   db = firebase.firestore();
   ballsArray = [];
   currentBall: Ball;
-  imgUrl: string;
-  path = 'images/test.jpg';
+  path = 'images/';
 
   constructor(public bs: BallService) {
     if (!this.ballsArray) {
@@ -23,12 +22,12 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     this.getBalls();
-    this.getImages();
   }
 
   getBalls() {
     this.bs.getAllBalls().subscribe(balls => {
       this.setBalls(balls);
+      this.getImages(balls);
     });
   }
 
@@ -47,10 +46,11 @@ export class MapComponent implements OnInit {
   }
 
   // Downloads image(s) from Firebase Storage
-  getImages() {
-    this.bs.getImageFromFirebase(this.path).then(
+  getImages(balls: Ball[]) {
+    for (const ball of balls) {
+    this.bs.getImageFromFirebase(this.path + ball.uid + '.jpg').then(
       // Set imgUrl to the url from Firebase
-      url => this.imgUrl = url).catch(
+      url => ball.imgUrl = url).catch(
       function(error) {
         // A full list of error codes is available at
         // https://firebase.google.com/docs/storage/web/handle-errors
@@ -65,6 +65,7 @@ export class MapComponent implements OnInit {
             break;
         }
       });
+    }
   }
 
 }
