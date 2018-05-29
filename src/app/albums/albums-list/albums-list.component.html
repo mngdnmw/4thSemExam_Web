@@ -1,13 +1,10 @@
-<mat-grid-list cols="4"
-               fxFlex="95"
-               gutterSize="10px"
-               rowHeight="1:1.9"
-               fxLayout="row">
-  <mat-grid-tile *ngFor="let ball of ballsArray">
-    <mat-card>
+<div class="container shell">
+  <div class="row">
+    <div class="col-lg-4 col-sm-6 col-xs-12" *ngFor="let ball of ballsArray">
+    <mat-card class="card">
       <mat-card-header>
         <mat-card-title>Spotted: {{ball?.time}}</mat-card-title>
-        <mat-card-subtitle>UID: {{ball?.uid}}</mat-card-subtitle>
+        <mat-card-subtitle>ID: {{ball?.uid}}</mat-card-subtitle>
       </mat-card-header>
       <img mat-card-image [src]="ball?.imgUrl" alt="Photo of ball">
       <mat-card-content>
@@ -15,58 +12,12 @@
         <p>Latitude: {{ball?.latitude}}</p>
       </mat-card-content>
       <mat-card-actions>
+        <span fxFlexAlign="end"></span>
         <button mat-stroked-button color="warn" (click)="deleteBall(ball)">
-          Delete Ball
+          Delete
         </button>
       </mat-card-actions>
     </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
-
-<!--<mat-grid-list cols="4"
-               gutterSize="8px"
-               class="row"
-               fxLayoutAlign="center center"
-               fxLayout.xs="column"
-               fxLayoutAlign.xs="center stretch">
-  <mat-grid-tile *ngFor="let ball of ballsArray" [colspan]="1" [rowspan]="1">
-    <mat-card>
-      <mat-card-header>
-        <div mat-card-avatar></div>
-        <mat-card-title>Spotted: {{ball?.time}}</mat-card-title>
-        <mat-card-subtitle>UID: {{ball?.uid}}</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image [src]="ball?.imgUrl" alt="Photo of ball">
-      <mat-card-content>
-        <p>Longitude: {{ball?.longitude}}</p>
-        <p>Latitude: {{ball?.latitude}}</p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-stroked-button color="warn" (click)="deleteBall(ball)">
-          Delete Ball
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
-
-
-
-<mat-card>
-  <mat-card-header>
-    <div mat-card-avatar></div>
-    <mat-card-title>Spotted: {{ball?.time}}</mat-card-title>
-    <mat-card-subtitle>UID: {{ball?.uid}}</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image [src]="ball?.imgUrl" alt="Photo of ball">
-  <mat-card-content>
-    <p>Longitude: {{ball?.longitude}}</p>
-    <p>Latitude: {{ball?.latitude}}</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-stroked-button color="warn" (click)="deleteBall(ball)">
-      Delete Ball
-    </button>
-  </mat-card-actions>
-</mat-card>
--->
+    </div>
+  </div>
+</div>
