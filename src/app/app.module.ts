@@ -15,6 +15,8 @@ import {AngularFirestoreModule} from 'angularfire2/firestore';
 import * as firebase from 'firebase';
 import {UserModule} from './user/user.module';
 import {PopupComponent} from './shared/popup/popup.component';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+import {AngularFireStorageModule} from 'angularfire2/storage';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import {PopupComponent} from './shared/popup/popup.component';
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireAuthModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,
@@ -35,7 +38,8 @@ import {PopupComponent} from './shared/popup/popup.component';
     MatListModule,
     SharedModule,
     MapsModule,
-    UserModule
+    UserModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

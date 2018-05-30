@@ -13,6 +13,10 @@ export class AuthService {
     return this.fireAuth.auth.signInAndRetrieveDataWithEmailAndPassword(email, password);
   }
 
+  reAuthenticate(password: string): Promise<any> {
+    return this.fireAuth.auth.signInWithEmailAndPassword(this.fireAuth.auth.currentUser.email, password);
+  }
+
   logout(): Promise<any> {
     return this.fireAuth.auth.signOut();
   }

@@ -35,23 +35,9 @@ export class AlbumsListComponent implements OnInit {
   // Gets images
   getImages(balls: Ball[]) {
     for (const ball of balls) {
-      this.bs.getImageFromFirebase(this.path + ball.uid + '.jpg').then(
-        // Set imgUrl to the url from Firebase
-        url => ball.imgUrl = url).catch(
-        function(error) {
-          // A full list of error codes is available at
-          // https://firebase.google.com/docs/storage/web/handle-errors
-          switch (error.code) {
-            case 'storage/object_not_found':
-              // File doesn't exist
-              console.log('File doesn\'t exist');
-              break;
-            case 'storage/unknown':
-              // Unknown error occurred, inspect the server response
-              console.log('Unknown error');
-              break;
-          }
-        });
+      // Set imgUrl to the url from Firebase
+      this.bs.getImageFromFirebase(this.path + ball.uid + '.jpg').subscribe(
+        url => ball.imgUrl = url);
     }
   }
 
