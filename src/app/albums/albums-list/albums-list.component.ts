@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {BallService} from '../../shared/ball/ball.service';
 import {Ball} from '../../shared/ball/ball';
+import {PopupMapComponent} from '../../shared/popup-map/popup-map.component';
+import {MatDialog} from '@angular/material';
+
 
 @Component({
   selector: 'app-albums-list',
@@ -11,12 +14,19 @@ export class AlbumsListComponent implements OnInit {
   ballsArray = [];
   path = 'images/';
 
-  constructor(private bs: BallService) {
-
+  constructor(private bs: BallService,
+              private dialog: MatDialog) {
   }
 
   ngOnInit() {
     this.getBalls();
+  }
+
+  // Opens Dialog
+  openDialog(ball: Ball): void {
+    const dialogRef = this.dialog.open(PopupMapComponent, {
+      data: ball
+    });
   }
 
   paginationMore() {
@@ -27,7 +37,6 @@ export class AlbumsListComponent implements OnInit {
   getBalls() {
     this.bs.firstData(6);
     this.bs.data.subscribe(balls => {
-      console.log(balls);
       this.ballsArray = balls;
       this.getImages(balls);
     });
