@@ -27,7 +27,7 @@
           Password needs to be at least 6 characters
         </mat-error>
         <mat-form-field fxFlex="100" fxLayout="row">
-          <p>Retype old password:</p>
+          <p>Retype new password:</p>
           <input matInput type="password" placeholder="" formControlName="confirmNewPass">
         </mat-form-field>
         <mat-error *ngIf="fcError('confirmNewPass', 'required')">

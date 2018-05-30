@@ -8,10 +8,10 @@
     <mat-card>
       <h2 mat-subheader>Latest observed balls</h2>
       <mat-card-content>
-        <mat-tab-group class="demo-tab-group">
+        <mat-tab-group>
           <mat-tab label="Tab 1">
             <ng-template mat-tab-label><p>1</p></ng-template>
-            <div class="demo-tab-content">
+            <div>
               <mat-list-item *ngFor="let ball of ballsArray | slice: 0 : 5" (click)="clickBall(ball)">
                 <img [src]="ball?.imgUrl" height="64" width="64">
                 <p mat-line>Time: {{ball?.time}}</p>
@@ -22,7 +22,7 @@
           </mat-tab>
           <mat-tab label="Tab 2" *ngIf="ballsArray.length > 5">
             <ng-template mat-tab-label><p>2</p></ng-template>
-            <div class="demo-tab-content">
+            <div>
               <mat-list-item *ngFor="let ball of ballsArray | slice: 5 : 10" (click)="clickBall(ball)">
                 <img [src]="ball?.imgUrl" height="64" width="64">
                 <p mat-line>Time: {{ball?.time}}</p>
