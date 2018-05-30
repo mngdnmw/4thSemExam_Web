@@ -12,9 +12,9 @@ import {ChangePassComponent} from './user/change-pass/change-pass.component';
 import {AuthGuard} from './auth/shared/auth-guard.service';
 
 const routes: Routes = [
+  { path: '', component: MapComponent },
   { path: 'albums', component: AlbumsListComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'map', component: MapComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'changemail', component: EditProfileComponent, canActivate: [AuthGuard] },

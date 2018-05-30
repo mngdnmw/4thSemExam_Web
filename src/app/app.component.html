@@ -3,8 +3,7 @@
     <mat-nav-list>
 
       <a mat-list-item routerLink="/"><app-margin-icon [iconName]="'home'"></app-margin-icon> Front Page</a>
-      <a mat-list-item routerLink="/map"><app-margin-icon [iconName]="'map'"></app-margin-icon> Map</a>
-      <a *ngIf="authenticated" mat-list-item routerLink="/albums"><app-margin-icon [iconName]="'folder'"></app-margin-icon> Albums</a>
+      <a *ngIf="authenticated" mat-list-item routerLink="/albums"><app-margin-icon [iconName]="'folder'"></app-margin-icon> Pictures</a>
       <a *ngIf="authenticated" mat-list-item routerLink="/profile"><app-margin-icon [iconName]="'account_circle'"></app-margin-icon> Profile</a>
 
       <hr>
@@ -19,7 +18,7 @@
   <mat-sidenav-content class="content">
     <div fxLayout="row" class="title-row">
       <span fxFlex="33"></span>
-      <h2 fxFlex="33">Welcome to BALLZ</h2>
+      <h1 class="title" fxFlex="33">Ball Finder</h1>
       <span fxFlex="30"></span>
       <button mat-mini-fab
               class="btn-nav"

@@ -4,7 +4,7 @@
 
 .sidenav {
   width: 250px;
-  background: #cad6d7;
+  background: #E5E5E5;
 }
 
 .content {
@@ -17,12 +17,17 @@
   align-self: right;
   margin-right: 10px;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .title-row {
+  background: #f3f3f3;
   text-align: center;
-  margin-bottom: 10px;
-  margin-top: 5px;
+}
+
+.title {
+  margin-top: 10px;
+  text-shadow: 2px 2px 5px #696969;
 }
 
 .footer {

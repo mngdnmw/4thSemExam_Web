@@ -10,7 +10,7 @@ import {MatSnackBar} from '@angular/material';
 })
 export class AppComponent implements OnDestroy, OnInit {
   authenticated: boolean;
-  navBarOpen = false;
+  navBarOpen = true;
 
   constructor(private authService: AuthService,
               private router: Router,

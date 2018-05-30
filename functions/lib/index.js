@@ -57,7 +57,6 @@ exports.deleteImageStored = functions.storage.object().onDelete((object) => {
  */
 exports.deleteImageDocument = functions.firestore.document('pictures/{uid}').onDelete((snap, context) => {
     const fileName = 'images/' + snap.data().uid + '.jpg';
-    console.log('uid: ' + fileName);
     const bucket = admin.storage().bucket();
     return bucket.file(fileName).delete().then(function () {
         console.log('Document successfully deleted!');
@@ -66,14 +65,5 @@ exports.deleteImageDocument = functions.firestore.document('pictures/{uid}').onD
         console.log('Unable to delete document.', err);
         return null;
     });
-    // const filePath = functions.config().firebase.storageBucket + '/images/' + uid + '.jpg';
-    //
-    // console.log('path: ', filePath);
-    //
-    // return admin.storage().bucket(path).delete()
-    // //
-    // const filePath = functions.config().firebase.storageBucket + '/images/' + uid;
-    // From there, get the deleted alert's id and delete all logs
-    // with that alertId key
 });
 //# sourceMappingURL=index.js.map
