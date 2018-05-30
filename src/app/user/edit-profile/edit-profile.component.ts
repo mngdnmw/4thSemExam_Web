@@ -42,8 +42,8 @@ export class EditProfileComponent implements OnInit {
       this.userService.updateEmail(updateModel.email)
         .then(() =>
           this.snack.open('Email updated', '', {
-            duration: 3000
-          })))
+            duration: 3000}))
+        .then(() => this.cancel()))
       .catch(error => {
         this.snack.open(error, '', {
           duration: 5000

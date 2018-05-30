@@ -45,7 +45,8 @@ export class ChangePassComponent implements OnInit {
     this.authService.reAuthenticate(passwordModel.oldPass).then(() =>
       this.userService.updatePassword(newPass)
         .then(() => this.snack.open('Password updated', '', {
-          duration: 3000})))
+          duration: 3000}))
+        .then(() => this.cancel()))
       .catch((error) =>
         this.snack.open(error, '', {
           duration: 5000
