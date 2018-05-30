@@ -42,9 +42,3 @@ import {PopupComponent} from './shared/popup/popup.component';
 })
 export class AppModule { }
 
-firebase.initializeApp({
-  apiKey: 'AIzaSyDzl_c8NLnGcVzn6yWXy-KTYp-ChbtKhy4',
-  authDomain: 'sosomafioso-5c8ef.firebaseapp.com',
-  projectId: 'sosomafioso-5c8ef',
-  storageBucket: 'sosomafioso-5c8ef.appspot.com'
-});
