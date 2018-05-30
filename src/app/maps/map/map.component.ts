@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BallService} from '../../shared/ball/ball.service';
 import {Ball} from '../../shared/ball/ball';
+import {forEach} from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-map',
@@ -23,7 +24,8 @@ export class MapComponent implements OnInit {
   }
 
   getBalls() {
-    this.bs.getAllBalls().subscribe(balls => {
+    this.bs.firstData(10);
+    this.bs.data.subscribe(balls => {
       this.setBalls(balls);
       this.getImages(balls);
     });

@@ -19,9 +19,15 @@ export class AlbumsListComponent implements OnInit {
     this.getBalls();
   }
 
+  paginationMore() {
+    this.bs.moreData();
+  }
+
   // Gets balls
   getBalls() {
-    this.bs.getAllBalls().subscribe(balls => {
+    this.bs.firstData(6);
+    this.bs.data.subscribe(balls => {
+      console.log(balls);
       this.ballsArray = balls;
       this.getImages(balls);
     });
