@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as firebase from 'firebase';
 import {BallService} from '../../shared/ball/ball.service';
 import {Ball} from '../../shared/ball/ball';
 
@@ -9,7 +8,6 @@ import {Ball} from '../../shared/ball/ball';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-  db = firebase.firestore();
   ballsArray = [];
   currentBall: Ball;
   path = 'images/';
@@ -48,23 +46,9 @@ export class MapComponent implements OnInit {
   // Downloads image(s) from Firebase Storage
   getImages(balls: Ball[]) {
     for (const ball of balls) {
-    this.bs.getImageFromFirebase(this.path + ball.uid + '.jpg').then(
       // Set imgUrl to the url from Firebase
-      url => ball.imgUrl = url).catch(
-      function(error) {
-        // A full list of error codes is available at
-        // https://firebase.google.com/docs/storage/web/handle-errors
-        switch (error.code) {
-          case 'storage/object_not_found':
-            // File doesn't exist
-            console.log('File doesn\'t exist');
-            break;
-          case 'storage/unknown':
-            // Unknown error occurred, inspect the server response
-            console.log('Unknown error');
-            break;
-        }
-      });
+      this.bs.getImageFromFirebase(this.path + ball.uid + '.jpg').subscribe(
+        url => ball.imgUrl = url);
     }
   }
 

@@ -10,8 +10,8 @@
     <mat-card-content>
       <form [formGroup]="updateForm" novalidate>
         <div fxLayout="row">
-          <p fxFlex="25"> Email:</p>
-          <input matInput placeholder="{{user?.email}}" formControlName="email">
+          <p fxFlex="25">New email:</p>
+          <input matInput placeholder="" formControlName="email">
         </div>
         <div fxLayout="row">
           <p fxFlex="25">Password:</p>
@@ -38,7 +38,7 @@
               color="accent"
               type="button"
               [disabled]="updateForm.invalid"
-              (click)="reauthenticateUser()">
+              (click)="updateEmail()">
         Save
       </button>
     </mat-card-footer>

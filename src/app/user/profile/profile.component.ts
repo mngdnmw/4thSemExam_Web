@@ -2,7 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import { MatDialog} from '@angular/material';
 import {PopupComponent} from '../../shared/popup/popup.component';
 import {User} from '../shared/user';
-import {UserService} from 'app/user/shared/user.service';
+import {UserService} from '../shared/user.service';
 import {Router} from '@angular/router';
 
 @Component({
